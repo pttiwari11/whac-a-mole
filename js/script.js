@@ -94,3 +94,89 @@ velocityLevelDOM.addEventListener('click', changeVelocityLevel)
 timeLevelDOM.addEventListener('click', changeTimeLevel)
 volumeLevelDOM.addEventListener('click', changeVolumeLevel)
 
+// Functions
+
+function helper(){
+  var helper_var = document.getElementsByClassName("help");
+  for(var i = 0; i < helper_var.length; i++){
+    helper_var[i].style.opacity = "0";
+  }
+}
+
+function up(e) {
+  e.preventDefault();
+  if (this.classList.contains('up')) {
+    this.classList.remove('up');
+
+    if(volume_level) {
+      const x = Math.round(Math.random() * (2 - 1) + 1);
+      if(x === 1) {
+        hit_sfx.currentTime = 0;
+        hit_sfx.play();
+      } else {
+        hit2_sfx.currentTime = 0.1;
+        hit2_sfx.play();
+      }
+    }
+    count++;
+    counter.textContent = `${count}`;
+  }
+}
+function peep() {
+  const randomTime = getRandomTime();
+  const hole = randomHole(holes);
+  hole.classList.add('up');
+  if(volume_level) {
+    peep_sfx.currentTime = 0;
+    peep_sfx.play();
+  }
+  setTimeout(() => {
+    if (!timeUp) peep();
+    hole.classList.remove('up');
+  }, randomTime);
+}
+
+function randomHole(holes) {
+  // Get me a Random DOM elements
+  const index = Math.floor(Math.random() * holes.length);
+  const hole = holes[index];
+  if (lastHole === hole) {
+    return randomHole(holes);
+  }
+  lastHole = hole;
+  return hole;
+}
+
+function startTime() {
+  if (started === false) {
+    if(volume_level) {
+      start_sfx.currentTime = 0.125;
+      start_sfx.play();
+    }
+    counter.textContent = '0';
+    count = 0;
+    timeUp = false;
+    time = 0;
+    started = true;
+    timer.textContent = `${getTime()}`;
+    peep();
+    countdown = setInterval(() => {
+      time++;
+      timer.textContent = `${getTime() - time}`;
+      (getTime() - time === 3 || getTime() - time === 1) ? timer.style.color = '#f33' : timer.style.color = 'inherit'
+
+      if (time >= getTime()) {
+        clearInterval(countdown);
+        timeUp = true;
+        started = false;
+        if(volume_level) {
+          ding_sfx.currentTime = 0
+          ding_sfx.play()
+        }
+        setTimeout(() => {
+          scoreboardUpdater();
+        }, 1000);
+      }
+    }, 1000);
+  }
+}
