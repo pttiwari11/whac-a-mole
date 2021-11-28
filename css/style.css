@@ -429,3 +429,128 @@ tbody:nth-of-type(3) td:first-child::before {
   cursor: pointer;
   outline: none;
 }
+.score-button:active {
+  background-color: #c21e1e;
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.opacity {
+  opacity: 1;
+}
+
+table {
+  margin: auto;
+  position: relative;
+}
+thead {
+  background-color: #f33;
+  font-size: 2rem;
+}
+tbody {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  background-color: rgb(255, 255, 255);
+}
+th {
+  font-weight: 400;
+  /* padding: 0.2rem 1em; */
+  padding: 0.75rem 2rem;
+}
+td {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0.75rem;
+  border: 1px solid #bbb;
+}
+
+.help{
+  position: absolute;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translate(65px, -40px);
+  border-radius: 20px;
+  transition: 2s all ease;
+  pointer-events:none
+}
+
+
+@media (max-width: 800px) {
+  .modal .title h1{
+    letter-spacing: 15px;
+    font-size: 3rem;
+  }
+  .view {
+    transform: translateX(0);
+  }
+  main .side-controls {
+    position: relative;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    transform: translateX(0%);
+    /* grid-column: 1/span3; */
+    grid-column: 1 / span 3;
+    gap: 1rem;
+  }
+  main .side-controls--container {
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+    margin-top: 0.5rem;
+    padding: .75rem 1rem;
+  }
+  main .side-controls--container-2 {
+    margin-top: 0.5rem;
+    background-color: #00000055;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px 3px #33333330;
+    display: grid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  main .side-controls--container-2 p {
+    color: #3328fe;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  main .side-controls--container-2 img {
+    height: 2.5rem;
+  }
+  .help{
+    transform: translate(-20px, -60px);
+  }
+  .time-help{
+    margin-left: 10px;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    font-size: 14px
+  }
+}
+@media (max-width: 500px) {
+  :root {
+    font-size: 12px
+  }
+  .modal .title h1{
+    letter-spacing: 10px;
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 400px) {
+  :root {
+    font-size: 10px
+  }
+}
