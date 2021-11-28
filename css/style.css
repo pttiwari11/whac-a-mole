@@ -140,3 +140,144 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
+.view .start {
+  cursor: pointer;
+}
+.view .start:active {
+  transform: scale(0.95);
+}
+.view .controls > div {
+  color: #fff;
+  text-shadow: 0px 0px 4px #000;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #00000055;
+  border: 3px solid #111;
+}
+
+.view .controls .time, 
+.view .controls .score {
+  position: relative;
+}
+.view .controls .time p, 
+.view .controls .score p {
+  position: absolute;
+  left: 50%;
+  top: -30%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+}
+
+main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.25rem;
+}
+main > div {
+  width: 10rem;
+  height: 10rem;
+}
+
+main .side-controls {
+  position: absolute;
+  right: 0;
+  width: 0;
+  transform: translateX(100%);
+  z-index: 10;
+}
+main .side-controls--container {
+  margin-left: 1rem; 
+  padding: .75rem;
+  width: max-content;
+  height: max-content;
+  background-color: #00000055;
+  border: 3px solid #111;
+  display: grid;
+  border-radius: 5px;
+  gap: 1rem;
+}
+main .side-controls--container-2 {
+  display: none;
+}
+main .side-controls--container div {position: relative;cursor: pointer;}
+main .side-controls--container .settings {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
+  margin: auto;
+}
+main .side-controls--container .velocity-level {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
+  margin: auto;
+}
+main .side-controls--container .time-level {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
+  margin: auto;
+}
+main .side-controls--container .volume-level {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
+  margin: auto;
+}
+main .side-controls--container img {
+  display: block;
+  width: inherit;
+  height: inherit;
+  user-select: none;
+}
+main .side-controls--container div:active {
+  transform: scale(0.90);
+}
+main .side-controls--container span {
+  color: #4cd137;
+  position: absolute;
+  text-shadow: 2px 2px 1px #000;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  font-size: 1.25rem;
+}
+main .side-controls--container span.easy {color: #00a8ff;}
+main .side-controls--container span.normal {color: #4cd137;}
+main .side-controls--container span.hard {color: #e84118;}
+main .side-controls--container span.none {display: none;}
+
+.active {
+  cursor: pointer;
+}
+.active:active {
+  color: #bbb;
+}
+
+.hole {
+  background: #00000055;
+  border-radius: 5px;
+  border: 3px solid #111;
+  position: relative;
+  overflow: hidden;
+}
+.mole {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  top: 100%;
+}
