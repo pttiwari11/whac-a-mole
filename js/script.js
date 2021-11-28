@@ -180,3 +180,78 @@ function startTime() {
     }, 1000);
   }
 }
+// Extra Stuff
+
+function scoreboardUpdater() {
+  finalScore = count;
+  nameContainer.classList.add('flex');
+  setTimeout(() => {
+    nameContainer.classList.add('opacity');
+  }, 100);
+}
+function enterName(e) {
+  if (e.keyCode === 13) {
+    name = this.value;
+    this.value = '';
+    nameContainer.classList.remove('flex');
+    nameContainer.classList.remove('opacity');
+    scoreboard.classList.add('block');
+    scoreboard.classList.add('opacity');
+    scoreboardTable.push({ name, score: finalScore });
+    localStorage.setItem('scoreboard', JSON.stringify(scoreboardTable));
+    sortedScoreTable = scoreboardTable.sort((a, b) => (a.score > b.score ? -1 : 1));
+    table.innerHTML = `
+    <button class="score-button">X</button>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+    </thead>`;
+
+    for (let i = 0; i < sortedScoreTable.length; i++) {
+      if (i > 7) break;
+      table.innerHTML += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${sortedScoreTable[i].name}</td>
+        <td>${sortedScoreTable[i].score}</td>
+      </tr>
+      `;
+    }
+    table.querySelector('.score-button').addEventListener('click', goMenu);
+  }
+}
+
+function goMenu() {
+  scoreboard.classList.remove('block');
+  scoreboard.classList.remove('opacity');
+  nameContainer.classList.remove('flex');
+  nameContainer.classList.remove('opacity');
+}
+
+function getRandomTime() {
+  switch (velocity_level) {
+    case 0:
+      return Math.round(Math.random() * (1500 - 600) + 600);
+    case 1:
+      return Math.round(Math.random() * (1500 - 400) + 400);
+    case 2:
+      return Math.round(Math.random() * (450 - 450) + 450);
+    default:
+      return Math.round(Math.random() * (1500 - 400) + 400);
+  }
+}
+function getTime() {
+  switch (time_level) {
+    case 0:
+      return 30
+    case 1:
+      return 10
+    case 2:
+      return 5
+    default:
+      return 10
+  }
+}
