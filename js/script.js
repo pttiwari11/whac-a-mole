@@ -255,3 +255,96 @@ function getTime() {
       return 10
   }
 }
+
+function changeVelocityLevel(e, n) {
+  const element = velocityLevelDOM.children[1]
+  const currentLevel = n || +element.textContent
+  if(volume_level) {
+    start_sfx.currentTime = 0.125;
+    start_sfx.play();
+  }
+  
+  switch (currentLevel) {
+    case 1:
+      element.classList.remove('easy')
+      element.classList.add('normal')
+      element.textContent = '2'
+      velocity_level = 1
+      mole.forEach(e => {
+        e.style.backgroundImage = "url('./Assets/midMole.png')"
+      });
+      break;
+    case 2:
+      element.classList.remove('normal')
+      element.classList.add('hard')
+      element.textContent = '3'
+      velocity_level = 2
+      mole.forEach(e => {
+        e.style.backgroundImage = "url('./Assets/hardMole.png')"
+      });
+      break;
+    case 3:
+      element.classList.remove('hard')
+      element.classList.add('easy')
+      element.textContent = '1'
+      velocity_level = 0
+      mole.forEach(e => {
+        e.style.backgroundImage = "url('./Assets/easyMole.png')"
+      });
+      break;
+    default:
+      element.textContent = '2'
+      velocity_level = 1
+      break;
+  }
+}
+function changeTimeLevel(e, n) {
+  const element = timeLevelDOM.children[1]
+  const currentLevel = n || element.textContent
+  if(volume_level) {
+    start_sfx.currentTime = 0.125;
+    start_sfx.play();
+  }
+  switch (currentLevel) {
+    case '30':
+      element.classList.remove('easy')
+      element.classList.add('normal')
+      element.textContent = '10'
+      time_level = 1
+      break;
+    case '10':
+      element.classList.remove('normal')
+      element.classList.add('hard')
+      element.textContent = '5'
+      time_level = 2
+      break;
+    case '5':
+      element.classList.remove('hard')
+      element.classList.add('easy')
+      element.textContent = '30'
+      time_level = 0
+      break;
+    default:
+      element.textContent = '10'
+      time_level = 1
+      break;
+  }
+}
+function changeVolumeLevel() {
+  const element = volumeLevelDOM.children[1]
+  const currentLevel = element.textContent
+  switch (currentLevel) {
+    case 'X':
+      element.textContent = ''
+      volume_level = 1
+      break;
+      default:
+      element.textContent = 'X'
+      volume_level = 0
+      break;
+  }
+  if(volume_level) {
+    start_sfx.currentTime = 0.125;
+    start_sfx.play();
+  }
+}
