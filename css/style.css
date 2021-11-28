@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@font-face {font-family: "Titan One";src: url("../Assets/TitanOne-Regular.ttf")}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Titan One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  text-transform: uppercase;
+  gap: 1.5rem;
+  z-index: 2;
+  background: url(../Assets/startBack.jpg) center center no-repeat;
+  background-size: cover;
+}
+.modal.hide {
+  display: none;
+}
+.modal > div {
+  cursor: default;
+}
+.modal .title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.modal .title h1 {
+  margin-top: 1.5rem;
+  color: rgb(0, 0, 0);
+  background-image: url('../Assets/hammer.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 3rem 0;
+  font-family: 'Titan One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 20px;
+  font-size: 4rem;
+  font-weight: 100;
+}
+.modal .title span {
+  display: block;
+  font-size: 1.8rem;
+}
+
+.modal .select {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.modal .buttons {
+  display: grid;
+  gap: 0.5rem;
+  width: max-content;
+  margin: auto;
+}
+.modal .buttons button {
+  width: 15rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  color: #000;
+  border-radius: 50rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  text-transform: uppercase;
+  padding-right: 2rem;
+  position: relative;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  box-shadow: 1px 3px 3px black;
+}
+.modal .buttons button:nth-child(1) {background-color: #00a8ff; color: #fff;}
+.modal .buttons button:nth-child(2) {background-color: #4cd137; color: #fff;}
+.modal .buttons button:nth-child(3) {background-color: #e84118; color: #fff;}
+
+.modal .buttons button:active {
+  transform: scale(0.95);
+}
+
+.modal .buttons img{
+  height: 3.2rem;
+  width: 3.2rem;
+  position: absolute;
+  right: 1rem;
+  top: 0.4rem;
+  border-radius: 50%;
+}
+
+body {
+  position: relative;
+  background: url('../Assets/background.jpg') center center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+}
+.container  * {
+  font-family: 'Titan One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+  margin: auto;
+  width: min-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.retry {
+  cursor: pointer;
+}
+.view * {
+  user-select: none;
+}
+.view {
+  display: grid;
+  gap: 1rem;
+  transform: translateX(-2.5rem);
+}
+.view main > div {
+  cursor: url('../Assets/hammer2.png'), auto;	
+}
+.view .controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
